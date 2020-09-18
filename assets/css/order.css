@@ -1,0 +1,248 @@
+ 
+.top_spc_btm{    padding: 50px 50px 0px 50px;}
+/* .errorM,.track_result{display: none;} */
+.track_result .card {
+position: relative;
+display: -webkit-box;
+display: -ms-flexbox;
+display: flex;
+-webkit-box-orient: vertical;
+-webkit-box-direction: normal;
+-ms-flex-direction: column;
+flex-direction: column;
+min-width: 0;
+word-wrap: break-word;
+background-color: #fff;
+background-clip: border-box;
+border: 1px solid rgba(0, 0, 0, 0.1);
+border-radius: 0.10rem
+}
+
+.card-header:first-child {
+border-radius: 0;background: #fae1e1;color: #000;
+}
+
+.card-header {
+padding: 0.75rem 1.25rem;
+margin-bottom: 0;
+background-color: #fff;
+border-bottom: 1px solid rgba(0, 0, 0, 0.1)
+}.card-header h6{float: right;margin: 0;color: #a24442;font-weight: 600;}
+
+.track {
+position: relative;
+background-color: #ddd;
+height: 7px;
+display: -webkit-box;
+display: -ms-flexbox;
+display: flex;
+margin-bottom: 60px;
+margin-top: 50px
+}
+
+.track .step {
+-webkit-box-flex: 1;
+-ms-flex-positive: 1;
+flex-grow: 1;
+width: 25%;
+margin-top: -18px;
+text-align: center;
+position: relative
+}
+
+.track .step.active:before {
+background: #a52800
+}
+
+.track .step::before {
+height: 7px;
+position: absolute;
+content: "";
+width: 100%;
+left: 0;
+top: 18px
+}
+
+.track .step.active .icon {
+background: #a24442;
+color: #fff
+}
+
+.track .icon {
+display: inline-block;
+width: 40px;
+height: 40px;
+line-height: 40px;
+position: relative;
+border-radius: 100%;
+background: #ddd
+}
+
+.track .step.active .text {
+font-weight: 400;
+color: #000
+}
+
+.track .text {
+display: block;
+margin-top: 7px
+}
+
+.itemside {
+position: relative;
+display: -webkit-box;
+display: -ms-flexbox;
+display: flex;
+width: 100%
+}
+
+.itemside .aside {
+position: relative;
+-ms-flex-negative: 0;
+flex-shrink: 0
+}
+
+.img-sm {
+width: 80px;
+height: 80px;
+padding: 7px
+}
+
+ul.row,
+ul.row-sm {
+list-style: none;
+padding: 0
+}
+
+.itemside .info {
+padding-left: 15px;
+padding-right: 7px
+}
+
+.itemside .title {
+display: block;
+margin-bottom: 5px;
+color: #212529
+}
+
+ 
+.btn-warning {
+color: #ffffff;
+background-color: #a24442;
+border-color: #a24442;
+border-radius: 1px
+}
+
+.btn-warning:hover {
+color: #ffffff;
+background-color: #ff2b00;
+border-color: #ff2b00;
+border-radius: 1px
+}
+
+
+/* --------------------- ----------------------------------  ------------------      */
+.main_srch_code {/*background: linear-gradient(to top, rgb(245, 147, 147) 1%, white 99%);
+vertical-align: middle; font-size: 14px;*/margin-top: 100px; padding-bottom: 100px;}
+.srch_code{width: 100%;;}
+.srch_code .card {margin: auto; width: 100%;}
+.track_result .card{border: none;}
+.top_spc_btm .card{border: 1px solid rgba(0, 0, 0, 0.1);}
+@media(max-width:768px) {.srch_code .card {width: 90%}}
+.upper {padding: 6vh 6vh 3vh 6vh}
+.lower {padding: 0vh 0 6vh;}
+/* .heading {display: flex;align-items: center;vertical-align: middle} */
+.heading p {margin-bottom: 0}
+
+.srch_code input {
+border: 1px solid rgba(0, 0, 0, 0.137);
+padding: 0.75rem;max-width: 500px;
+outline: none;
+width: 100%;
+min-width: unset;
+background-color: transparent
+}
+
+.srch_code .form-element {
+margin: 4vh 0
+}
+
+.srch_code form .col-3,.srch_code .col-9,.srch_code .col-1,.srch_code .col--11 {
+padding: 0;
+width: min-content
+}
+
+form .col-11 {
+padding-left: 10px
+}
+
+form .col-1 {
+display: flex;
+align-items: center;
+color: #a24442;
+font-size: 3vh;
+justify-content: center
+}
+
+#code {
+text-align: center
+}
+
+.srch_code orm .row {
+margin: 0
+}
+
+.srch_code hr {
+margin: 0;
+border-top: 2px solid rgba(0, 0, 0, .1)
+}
+
+#input-header {width: 100%;display: block;
+color: grey
+}
+
+.srch_code .invalid {
+color: grey;
+line-height: 1.2
+}
+
+.srch_code .btn {
+width: 50%;
+background-color: #a24442;max-width: 200px;
+border-color: rgb(169 53 33);
+color: white;
+padding: 1.5vh 0
+}
+
+.srch_code .btn:focus {
+box-shadow: none;
+outline: none;
+box-shadow: none;
+color: white;
+-webkit-box-shadow: none;
+-webkit-user-select: none;
+transition: none
+}
+
+.srch_code .btn:hover {
+color: white
+}
+
+input:focus::-webkit-input-placeholder {
+color: transparent
+}
+
+input:focus:-moz-placeholder {
+color: transparent
+}
+
+input:focus::-moz-placeholder {
+color: transparent
+}
+
+input:focus:-ms-input-placeholder {
+color: transparent
+}
+
+
+/* --------------------- ----------------------------------  ------------------      */
