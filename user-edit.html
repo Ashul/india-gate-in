@@ -1,0 +1,233 @@
+<!doctype html>
+<html class="no-js" lang="zxx">
+
+
+ <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Check Status</title>
+    <meta name="description" content="">
+    <meta name="keywords" content="" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+     
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="assets/images/favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" href="assets/images/icon.png">
+
+    <!-- Google font (font-family: 'Montserrat', sans-serif;) -->
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,600,700" rel="stylesheet">
+    <!-- Google font (font-family: 'Open Sans', sans-serif;) -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300i,400,400i,600,700" rel="stylesheet">
+
+    <!-- Plugins -->
+    <link rel="stylesheet" href="assets/css/plugins/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/plugins.css">
+
+    <!-- Style Css -->
+    <!-- <link rel="stylesheet" href="assets/css/style.css"> -->
+
+    <!-- Custom Styles -->
+    <link rel="stylesheet" href="assets/css/custom.css">
+</head>
+
+<body>
+    <!--[if lte IE 9]>
+    <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
+  <![endif]-->
+
+    <!-- Add your site or application content here -->
+
+    <!-- Wrapper -->
+    <div id="wrapper" class="wrapper">
+ 
+         <!--// Breadcrumb -->
+
+        <!-- Page Conttent -->
+        <main class="page-content">
+
+            <!-- Contact Area -->
+<div class="container mt-3">
+  <a href="user-list.html" class="text-danger">Back to User List</a>
+  <hr>
+    <form  id="add_user"  name="add_user">
+      <div class="form-group ">
+        <label for="name">mobile:</label>
+        <input type="text" class="form-control" placeholder="Enter mobile" id="mobile" name="mobile">
+      </div>
+      <div class="row"><div class="col-lg-6">
+    
+
+          <div class="form-group">
+            <label for="email">ordered:</label>
+        
+            <input type="text" class="form-control mb-2" placeholder="Enter ordered Date" id="ordered_date" name="ordered_date">
+            <input type="text" class="form-control" placeholder="Enter ordered message" id="ordered_text" name="ordered_text">
+            <input type="checkbox" class="form-control"  id="ordered_status" name="ordered_status" value="true">
+          </div>
+          <hr></hr>
+          <div class="form-group">
+            <label for="phone">packed:</label>
+            <input type="text" class="form-control mb-2" placeholder="Enter packed Date" id="packed_date" name="packed_date">
+            <input type="text" class="form-control" placeholder="Enter packed message" id="packed_text" name="packed_text">
+            <input type="checkbox" class="form-control"  id="packed_status" name="packed_status" value="true">
+          </div>
+          <hr></hr>
+
+         
+          <!-- <div class="form-group">
+            <label for="total_payment">status:</label>
+            <input type="text" class="form-control" placeholder="Enter Status" id="status" name="status">
+        </div> -->
+       
+
+
+           
+         
+      </div>
+      <div class="col-lg-6 border-left">
+        <div class="form-group">
+          <label for="city">shipped:</label>
+          <input type="text" class="form-control mb-2" placeholder="Enter shipped Date" id="shipped_date" name="shipped_date">
+          <input type="text" class="form-control" placeholder="Enter shipped message" id="shipped_text" name="shipped_text">
+          <input type="checkbox" class="form-control"  id="shipped_status" name="shipped_status" value="true">
+        </div>
+        <hr></hr>
+
+        <div class="form-group">
+          <label for="pwd">cancelled:</label>
+          <input type="text" class="form-control mb-2" placeholder="Enter cancelled Date" id="cancelled_date" name="cancelled_date">
+          <input type="text" class="form-control" placeholder="Enter cancelled message" id="cancelled_text" name="cancelled_text">
+          <input type="checkbox" class="form-control"  id="cancelled_status" name="cancelled_status" value="true">
+          <!-- <input type="text" placeholder="Enter state" id="pwd" > -->
+        </div>
+      
+      </div>
+      <div class="col-lg-12 mt-3 bg-primary text-light mb-2" id="sucess_submit_form"></div>
+      <div class="col-lg-12 mb-5"> <button type="submit" class="btn btn-primary">Update User</button></div>
+      
+    </div> <!-- end row -->
+
+     
+      </form>
+</div>
+            <!--// Services Area -->
+
+        </main>
+        <!--// Page Conttent -->
+		<!-- Footer -->
+		 
+		<!--// Footer -->
+    
+    </div>
+    <!--// Wrapper -->
+
+   
+    <script src="assets/js/plugins/jquery-3.4.1.min.js"></script>
+    
+<script>
+     
+</script>
+    
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script src="https://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/jquery.validate.min.js"></script>
+
+ 
+<script>
+ 
+/*----------------------------------                            **/
+/*--------------------------------              ---------------------------------------------------------------*/
+/*--------------------------------              ---------------------------------------------------------------*/
+// var number=2;
+var url=window.location.href
+var pieces = url.split("?");
+var user_id=pieces[1]
+console.log(user_id)
+
+
+
+$.ajax({  
+url  : 'https://india-gate.herokuapp.com//api/user/track-order/'+user_id,
+type : "GET",
+dataType:"JSON",
+success:function(msg)
+{
+ console.log(msg.data)
+//  var list=msg.data;
+ var html='';
+ console.log(msg.data)
+ 
+ //$.each(msg.data,function(key,value){ // end for each
+     $("#name").val(msg.data.name)  
+
+        $( "input[name='ordered_date']" ).val(msg.data.ordered_date);
+        $( "input[name='ordered_text']" ).val(msg.data.ordered_text);
+        $( "input[name='ordered_status']" ).val(msg.data.ordered_status);
+      
+
+        $( "input[name='shipped_date']" ).val(msg.data.shipped_date);
+        $( "input[name='shipped_text']").val(msg.data.shipped_text);
+        $( "input[name='shipped_status']" ).val(msg.data.shipped_status);
+ 
+
+        $( "input[name='cancelled_date']" ).val(msg.data.cancelled_date);
+        $( "input[name='cancelled_text']" ).val(msg.data.cancelled_text);    
+        $( "input[name='cancelled_status']" ).val(msg.data.cancelled_status);
+
+        
+        $( "input[name='packed_date']" ).val(msg.data.packed_date);
+        $( "input[name='packed_text']").val(msg.data.packed_text);
+        $( "input[name='packed_status']" ).val(msg.data.packed_status);
+
+        $( "input[name='mobile']" ).val(msg.data.mobile);
+ 
+ 
+  //})// end for each
+  // html+='</table>'
+//  $("#loan_detail").html(html);    
+} // end sucess
+
+}); // end ajax
+
+
+/*--------------------------------              ---------------------------------------------------------------*/
+$("#add_user").validate({
+      rules:
+      {},      
+      submitHandler: function(form)
+      {
+        event.preventDefault();
+        var form=$("#add_user").serialize();
+        $.ajax({
+          type: "PUT",
+          url: "https://wkdgysl4tg.execute-api.ap-south-1.amazonaws.com/v1/finance/registration_form/"+user_id,
+          data: form, // serializes the form's elements.
+          success: function(data)
+          {
+             $("#sucess_submit_show").hide()
+              $("#sucess_submit_form").html(data.message);  
+              $("#error_submit_form").html('');  
+              // document.getElementById("add_user").reset();
+          },
+          error: function(data){
+           // console.log(data)
+            $("#error_submit_form").html(data);  
+            $("#sucess_submit_form").html(''); 
+          }
+            
+        });
+      }
+ }); 
+ /*-----------------------------              ----------------------  -                 ----------------*/
+
+
+ 
+ //////////////////////////////////////////////////////////////////
+
+ 
+</script>
+    
+</body>
+
+
+ </html>

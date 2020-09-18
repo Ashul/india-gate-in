@@ -1,0 +1,22 @@
+#RewriteEngine On
+#RewriteCond %{HTTP_HOST} ^indiagateltd.com 
+#RewriteRule ^(.*)$ http://www.indiagateltd.com/$1 [L,R=301]
+
+# Redirect to www
+RewriteEngine On
+#RewriteCond %{HTTP_HOST} ^[^.]+\.[^.]+$
+#RewriteRule ^(.*)$ https://www.%{HTTP_HOST}/$1 [R=301,L]
+
+#ErrorDocument 404 http://indiagateltd.com/404.html
+
+
+RewriteEngine On
+RewriteCond %{HTTP_HOST} ^indiagateltd.com$ [NC,OR]
+RewriteCond %{HTTP_HOST} ^www.indiagateltd.com$ [NC]
+RewriteRule (.*)$ https://indiagateltd.com/$1 [R=301,L] 
+
+# RewriteCond %{HTTPS} !=on
+# RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301,NE] 
+
+
+# ErrorDocument 404 https://www.indiagateltd.com/demo/404.html

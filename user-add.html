@@ -1,0 +1,191 @@
+<!doctype html>
+<html class="no-js" lang="zxx">
+
+
+ <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Check Status</title>
+    <meta name="description" content="">
+    <meta name="keywords" content="" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+     
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="assets/images/favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" href="assets/images/icon.png">
+
+    <!-- Google font (font-family: 'Montserrat', sans-serif;) -->
+    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,600,700" rel="stylesheet">
+    <!-- Google font (font-family: 'Open Sans', sans-serif;) -->
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300i,400,400i,600,700" rel="stylesheet">
+
+    <!-- Plugins -->
+    <link rel="stylesheet" href="assets/css/plugins/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/plugins.css">
+
+    <!-- Style Css -->
+    <!-- <link rel="stylesheet" href="assets/css/style.css"> -->
+
+    <!-- Custom Styles -->
+    <link rel="stylesheet" href="assets/css/custom.css">
+ 
+    <!-- <style>body{background:green}</style> -->
+</head>
+
+<body>
+    <!--[if lte IE 9]>
+    <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
+  <![endif]-->
+
+    <!-- Add your site or application content here -->
+
+    <!-- Wrapper -->
+    <div id="wrapper" class="wrapper">
+ 
+
+ 
+        <!--// Breadcrumb -->
+
+        <!-- Page Conttent -->
+        <main class="page-content">
+
+            <!-- Contact Area -->
+<div class="container mt-5">
+  <a href="user-list.html" class="text-danger">Back to User List</a>
+  <hr>
+    <form action="/action_page.php" id="add_user"  name="add_user">
+      <div class="form-group ">
+        <label for="name">mobile:</label>
+        <input type="text" class="form-control" placeholder="Enter mobile" id="mobile" name="mobile">
+      </div>
+      <div class="row"><div class="col-lg-6">
+    
+
+          <div class="form-group">
+            <label for="email">ordered:</label>
+        
+            <input type="text" class="form-control mb-2" placeholder="Enter ordered Date" id="ordered_date" name="ordered_date">
+            <input type="text" class="form-control" placeholder="Enter ordered message" id="ordered_text" name="ordered_text">
+            <input type="checkbox" class="form-control"  id="ordered_status" name="ordered_status" value="true">
+          </div>
+          <hr></hr>
+          <div class="form-group">
+            <label for="phone">packed:</label>
+            <input type="text" class="form-control mb-2" placeholder="Enter packed Date" id="packed_date" name="packed_date">
+            <input type="text" class="form-control" placeholder="Enter packed message" id="packed_text" name="packed_text">
+            <input type="checkbox" class="form-control"  id="packed_status" name="packed_status" value="true">
+          </div>
+          <hr></hr>
+
+         
+          <!-- <div class="form-group">
+            <label for="total_payment">status:</label>
+            <input type="text" class="form-control" placeholder="Enter Status" id="status" name="status">
+        </div> -->
+       
+
+
+           
+         
+      </div>
+      <div class="col-lg-6 border-left">
+        <div class="form-group">
+          <label for="city">shipped:</label>
+          <input type="text" class="form-control mb-2" placeholder="Enter shipped Date" id="shipped_date" name="shipped_date">
+          <input type="text" class="form-control" placeholder="Enter shipped message" id="shipped_text" name="shipped_text">
+          <input type="checkbox" class="form-control"  id="shipped_status" name="shipped_status" value="true">
+        </div>
+        <hr></hr>
+
+        <div class="form-group">
+          <label for="pwd">cancelled:</label>
+          <input type="text" class="form-control mb-2" placeholder="Enter cancelled Date" id="cancelled_date" name="cancelled_date">
+          <input type="text" class="form-control" placeholder="Enter cancelled message" id="cancelled_text" name="cancelled_text">
+          <input type="checkbox" class="form-control"  id="cancelled_status" name="cancelled_status" value="true">
+          <!-- <input type="text" placeholder="Enter state" id="pwd" > -->
+        </div>
+      
+      </div>
+
+      <div class="col-lg-12 mb-5 mt-2"> <button type="submit" class="btn btn-primary">Register User</button></div>
+
+    </div> <!-- end row -->
+
+     
+      </form>
+</div>
+            <!--// Services Area -->
+
+        </main>
+        <!--// Page Conttent -->
+		<!-- Footer -->
+		 
+		<!--// Footer -->
+    
+    </div>
+    <!--// Wrapper -->
+
+    <!-- Js Files -->
+
+    <script src="assets/js/plugins/jquery-3.4.1.min.js"></script>
+    
+<script>
+     
+</script>
+    
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script src="https://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/jquery.validate.min.js"></script>
+
+ 
+<script>
+ 
+/*----------------------------------                            **/
+
+$("#add_user").validate({
+      rules:
+      {
+        // subject:"required",
+        // subject_text:"required",
+        // message:"required",    
+      },
+      
+      submitHandler: function(form)
+      {
+        event.preventDefault();
+        var form=$("#add_user").serialize();
+        console.log(form)
+        $.ajax({
+          type: "POST",
+          url: "https://india-gate.herokuapp.com/api/user/track-order/",
+          data: form, // serializes the form's elements.
+          success: function(data)
+          {
+             // alert(data.message); // show response from the php script.
+             $("#sucess_submit_show").hide()
+              $("#sucess_submit_form").html(data.message);  
+              $("#error_submit_form").html('');  
+              document.getElementById("add_user").reset();
+         
+          },
+          error: function(data){
+           // console.log(data)
+            $("#error_submit_form").html(data);  
+            $("#sucess_submit_form").html(''); 
+          }
+            
+        });
+      }
+ }); 
+ /*-----------------------------              ----------------------  -                 ----------------*/
+ 
+ //////////////////////////////////////////////////////////////////
+ 
+
+ 
+</script>
+    
+</body>
+
+
+ </html>
